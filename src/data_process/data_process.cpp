@@ -7,6 +7,16 @@ const double ANG_MAX1 = 1.2;
 const double ANG_MIN2 = -1.67;
 const double ANG_MAX2 = -0.85;
 
+Pcprocess::Pcprocess(const char* sub_topic, const char* pub_topic)
+{
+		
+		sub = nh.subscribe(sub_topic, 1000, &Pcprocess::Callback, this);
+	
+		pub = nh.advertise<sensor_msgs::PointCloud2>(pub_topic, 1000);
+}
+
+Pcprocess::~Pcprocess() {}
+
 void Pcprocess::Callback(sensor_msgs::PointCloud2 pc2)
 {
 	sensor_msgs::PointCloud2 pc2_pub;
@@ -38,7 +48,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "Pcprocess");
 
-    Pcprocess pcprocesser("/livox/lidar", "/livox/lidar_dp");
+    Pcprocess pcprocesser("/livox/lidar", "/scan");
     
     ros::spin();
 

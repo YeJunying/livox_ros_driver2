@@ -16,13 +16,9 @@ private:
 	ros::Publisher pub;
 public:
 
-	Pcprocess(const char* sub_topic, const char* pub_topic)
-	{
-		//订阅器初始化
-		sub = nh.subscribe(sub_topic, 1000, &Pcprocess::Callback, this);
-		//发布器初始化
-		pub = nh.advertise<sensor_msgs::PointCloud2>(pub_topic, 1000);
-	}
+	Pcprocess(const char* sub_topic, const char* pub_topic);
+
+	~Pcprocess();
 
 	void Callback(sensor_msgs::PointCloud2 pc2);
 };

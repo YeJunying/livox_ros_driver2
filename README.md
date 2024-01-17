@@ -28,7 +28,7 @@ $ sudo make install
 1. Clone Livox ROS Driver 2 source code:
 
 ```shell
-$ git clone https://github.com/Livox-SDK/livox_ros_driver2.git livox_ws/src/livox_ros_driver2
+$ git clone https://github.com/YeJunying/livox_ros_driver2.git
 ```
 
 2. 修改MID360_config.json文件中的雷达IP：
